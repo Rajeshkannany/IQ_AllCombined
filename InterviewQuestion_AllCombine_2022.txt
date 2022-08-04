@@ -1,0 +1,1000 @@
+---------Cognizant---------
+
+1.	How the deployment process takes place with Azure tool.(Octopus)
+2.	What is abstract class vs interface
+
+3.	How to optimise a Stored procedure
+	Include SET NOCOUNT ON statement. No count is returned and reduce network.
+	Use schema name with object name.
+	Do not use the prefix “sp_” in the stored procedure name.
+	Use the sp_executesql stored procedure instead of the EXECUTE statement.
+	Try to avoid using SQL Server cursors whenever possible.
+	Keep the Transaction as short as possible.
+	Use TRY-Catch for error handling.
+
+4.	If a website is slow how will you optimise its performance
+	Minimize HTTP requests
+	Minify and combine files
+	Use asynchronous loading for CSS and JavaScript files
+	Defer JavaScript loading
+	Minimize time to first byte
+	Time to first byte, or TTFB, is the amount of time a browser has to wait before getting its first byte of data from the server. 
+	Google recommends a TTFB of less than 200 ms.
+	Reduce server response time
+	Choose the right hosting option for your needs
+	Run a compression audit
+	Enable compression
+	Enable browser caching
+	Reduce image sizes
+	Use a CDN
+	Use external hosting platforms
+	Optimize CSS delivery
+	Prioritize above-the-fold content (lazy loading)
+	Reduce the number of plugins you use on your site
+	Reduce redirects
+	Reduce external scripts
+	Monitor your speed over time & monitor mobile speed
+	Database optimization
+	https://www.crazyegg.com/blog/speed-up-your-website/
+	
+5.	If an issue is at a customer’s end how will you fix the issue
+	If issue occurring only at client side or we are able to replicate at our end
+	Looking at logs
+	Replicate client data into test data to reproduce the same at our end.
+	Browser console if any javascript erro
+	
+6.	If say an url/application is not working at client what will you do first (check the logs first)
+
+7.	Exception Handling – Inner Exception
+	The InnerException is a property of an exception. 
+	When there are series of exceptions, the most current exception can obtain the prior exception in the InnerException property.
+	
+8.	Security of an application(Authentication/Authorisation)
+	Security is all about protecting your assets from unauthorized actions.
+
+9.	Factory Based pattern.
+10.	Boxing/Unboxing.
+11.	How to host a web application on IIS
+
+12.	Asynchronous method call/programming
+	Asynchronously loading css file
+	The trick to triggering an asynchronous stylesheet download is to use a <link> element and set an invalid value for the media attribute (I'm using media="none", but any value will do). When a media query evaluates to false, the browser will still download the stylesheet, but it won't wait for the content to be available before rendering the page.
+	<link rel="stylesheet" href="css.css" media="none">
+	Once the stylesheet has finished downloading the media attribute must be set to a valid value so the style rules will be applied to the document. The onload event is used to switch the media property to all:
+	<link rel="stylesheet" href="css.css" media="none" onload="if(media!='all')media='all'">
+	
+13.	How to do error handling in SP ? Use Try Catch
+			BEGIN TRY  
+		 { sql_statement | statement_block }  
+	END TRY  
+	BEGIN CATCH  
+		 [ { sql_statement | statement_block } ]  
+	END CATCH  
+	[ ; ]  
+
+--------------Deloitte-----------------
+
+1.Entity Framework
+2.Stored procedures can be included in user defined functions
+	You cannot execute a stored procedure inside a function, because a function is not allowed to modify database state
+	
+3.Generic class
+4. web Apis
+5. how bootstrap is installed
+	By two ways i.e cdn or download it offline
+	Main files for bootstrap are bootstrap.css, bootstrap.min.js & bootstrap.js
+	It’s a open source tool compromise of css,html and js with ready to use template help in website development.
+	
+6. reflection & where we use it
+7. where you store your code(git hub)?
+8. how to make website responsive
+	To create a responsive website, add the following <meta> tag to all your web pages:
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+9  abstract vs interface
+10. UNION
+11.Net core vs .net framework
+	What to use .NET Framework or .NET Core?
+	.NET Core is to be used for the server application when –
+	1.	There is cross-platform need.
+	2.	Targeting microservices or using Docker containers.
+	3.	Need of high performance and scalable systems.
+	4.	Side by side need of .NET versions per application.
+
+	.NET Framework is to be used for the server application when –
+	1.	Application is to be built to run only on Windows.
+	2.	If application uses .NET framework technologies not available for .NET Core.
+	3.	Applications that are already running on .NET Framework.
+
+	BASED ON	.NET Core	.NET Framework
+	Open Source	.Net Core is an open source.	Certain components of the .Net Framework are open source.
+	Cross-Platform	Works on the principle of “build once, run anywhere”. It is compatible with various operating systems — Windows, Linux, and Mac OS as it is cross-platform.	.NET Framework is compatible with the windows operating system. Although, it was developed to support software and applications on all operating systems.
+	Application Models	.Net Core does not support desktop application development and it rather focuses on the web, windows mobile, and windows store.	.Net Framework is used for the development of both desktop and web applications as well as it supports windows forms and WPF applications.
+	Installation	.NET Core is packaged and installed independently of the underlying operating system as it is cross-platform.	.NET Framework is installed as a single package for Windows operating system.
+	Support for Micro-Services and REST Services	.Net Core supports the development and implementation of micro-services and the user has to create a REST API for its implementation.	.Net Framework does not support the development and implementation of microservices but it supports the REST API services.
+	Performance and Scalability	 .NET Core offers high performance and scalability.	.Net Framework is less effective in comparison to .Net Core in terms of performance and scalability of applications.
+	Compatibility	.NET Core is compatible with various operating systems — Windows, Linux, and Mac OS.	.NET Framework is compatible only with the Windows operating system.
+	Android Development	.NET Core is compatible with open-source mobile application platforms, i.e. Xamarin, through the .NET Standard Library. Developers use Xamarin’s tools to configure the mobile app for specific mobile devices such as iOS, Android, and Windows phones.	.NET Framework does not support any framework for mobile application development.
+	Packaging and Shipping	.Net Core is shipped as a collection of Nugget packages.	All the libraries of .Net Framework are packaged and shipped together.
+	Deployment Model	Whenever the updated version of .NET Core gets initiated; it is updated instantly on one machine at a time, thereby getting updated in new directories/folders in the existing application without affecting it. Thus, .NET Core has a good and flexible deployment model.	In the case of .Net Framework, when the updated version is released it is first deployed on the Internet Information Server only.
+	CLI Tools	.NET Core provides light-weight editors and command-line tools for all supported platforms.	.Net Framework is heavy for Command Line Interface and developers prefer to work on the lightweight Command Line Interface.
+	Security 	.NET Core does not have features like Code Access Security.	Code access security feature is present in .NET Framework.
+
+12. Restful Apis
+13 .net core
+14. Angular
+15. how do you connect to the DB.
+16. where do you store logs ELMAH (Error Logging Modules and Handlers)
+
+-------------ESDS Software Solution---------------
+
+1.	SP vs user functions
+2.	Group by
+3.	Having vs where
+4.	Aggregate functions
+5.	Document.ready vs windows.load
+6.	E.preventdefault The preventDefault() method stops the default action of a selected element from happening by a user. 
+7.	Data Annotations
+8.	Customise Data Annotations
+
+1.Your class has to inherit from System.ComponentModel.DataAnnotations.ValidationAttribute class.
+2.Override bool IsValid(object value) method and implement validation logic inside it.
+
+public class StringLengthRangeAttribute : ValidationAttribute
+{
+    public int Minimum { get; set; }
+    public int Maximum { get; set; }
+
+    public StringLengthRangeAttribute()
+    {
+        this.Minimum = 0;
+        this.Maximum = int.MaxValue;
+    }
+
+    public override bool IsValid(object value)
+    {
+        string strValue = value as string;
+        if (!string.IsNullOrEmpty(strValue))
+        {
+            int len = strValue.Length;
+            return len >= this.Minimum && len <= this.Maximum;
+        }
+        return true;
+    }
+}
+
+9.	Action filters
+10.	How to we render partial view
+11.	TextBox vs TextBoxFor
+
+Html.TextBox are not strongly typed and hence they doesn't require a strongly typed view.This means that we can hardcode whatever name we want. 
+On the other hand, Html.TextBoxFor are strongly typed and requires a strongly typed view, and the name is inferred from the lambda expression.
+Strongly typed HTML helpers also provide compile time checking.
+
+Since, in real time, we mostly use strongly typed views, prefer to use Html.TextBoxFor over their counterparts.
+Whether, we use Html.TextBox OR Html.TextBoxFor, the end result is the same, that is they produce the same HTML.
+Strongly typed HTML helpers are added in MVC2.
+
+12.	ViewModel  vs Model
+13.	API’s
+14.	.Net Framework
+15.	Postgresql
+16.	Azure Devops
+
+----------FifthNote-------------------------
+
+1.	If there are 100 records ,I want record from 11 - Use Skip.
+
+select * from table order by [some_column] 
+offset 10 rows
+FETCH NEXT 10 rows only
+And you can't use the "TOP" keyword when doing this. Order by is must
+
+2.	First Ten records in linq
+3.	Skip Take
+4.	FirstOrDefault SingleOrDefault
+
+Semantical Difference:
+
+FirstOrDefault returns a first item of potentially multiple (or default if none exists).
+SingleOrDefault assumes that there is a single item and returns it (or default if none exists).
+Multiple items are a violation of contract, an exception is thrown.
+
+Performance Difference
+
+FirstOrDefault is usually faster, it iterates until it finds the element and only has to iterate the whole enumerable when it doesn't find it.
+In many cases, there is a high probability to find an item.
+
+SingleOrDefault needs to check if there is only one element and therefore always iterates the whole enumerable.
+To be precise, it iterates until it finds a second element and throws an exception.
+But in most cases, there is no second element.
+
+Conclusion
+
+Use FirstOrDefault if you don't care how many items there are or when you can't afford checking uniqueness (e.g. in a very large collection).
+When you check uniqueness on adding the items to the collection, it might be too expensive to check it again when searching for those items.
+
+Use SingleOrDefault if you don't have to care about performance too much and want to make sure that the assumption of a single item is clear to the reader and checked at runtime.
+In practice, you use First / FirstOrDefault often even in cases when you assume a single item, to improve performance.
+You should still remember that Single / SingleOrDefault can improve readability (because it states the assumption of a single item) and stability (because it checks it) and use it appropriately.
+
+5.	Join Query in Linq
+6.	Distinct
+7.	Extension Methods
+8.	String VS StringBuilder
+9.	when will finally block will get execute
+
+There are 4 potential scenarios here:
+
+The try block runs to the end, and no exception is thrown. In this scenario, the finally block will be executed after the try block.
+
+An exception is thrown in the try block, which is then caught in one of the catch blocks. 
+In this scenario, the finally block will execute right after the catch block executes.
+
+An exception is thrown in the try block and there's no matching catch block in the method that can catch the exception. 
+In this scenario, the call to the method ends, and the exception object is thrown to the enclosing method - as in the method in which the try-catch-finally blocks reside.
+But, before the method ends, the finally block is executed.
+
+Before the try block runs to completion it returns to wherever the method was invoked. 
+But, before it returns to the invoking method, the code in the finally block is still executed. 
+So, remember that the code in the finally block will still be executed even if there is a return statement somewhere in the try block.
+
+Update: Finally ALWAYS gets executed, no matter what happens in the try or catch block (fail, return, exception, finish etc.).
+
+10.	Entity Framework(DataBase first)
+
+11.	Abstraction
+12.	Method Overlaoding Method Overriding
+13.	Write a program to get the sum of even nos in array
+14.	Method hiding cha program output
+15.	Mutliple / MultiLevel Inheriatnce
+16.	Protected internal
+17.	ViewData/ViewBag
+18.	Result Filters (OutputCache)
+19.	Exception Filters [HandleError]
+
+20.	Filters(Action Filters/Exception)
+21.	Partial Method
+22.	All the members in the static class should be static? Yes
+
+23.	Can Stored procedures be called inside a function 
+24.	UNION
+25.	Left Join
+26.	Finding duplicate values in a SQL table - SELECT name, email, COUNT(*) FROM users GROUP BY name, email HAVING COUNT(*) > 1
+
+27.	Ajax syntax in Jquery
+28.	How to change a button's colour - $(this).addClass('red'); / $(this).css('color','red');
+
+class BaseClassA
+{
+	public virtual void showMessage()
+	{
+		Console.WriteLine("In BaseClass A ");
+	}
+}
+class DerivedClassB : BaseClassA
+{
+	public override void showMessage()
+	{
+		Console.WriteLine("In DerivedClass B ");
+	}
+}
+
+class DerivedClassC : DerivedClassB
+{
+	public new void showMessage()
+	{
+		Console.WriteLine("In DerivedClass C");
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		BaseClassA a = new BaseClassA();
+		a.showMessage();
+		a = new DerivedClassB();
+		a.showMessage();
+		BaseClassA b = new DerivedClassC();
+		b.showMessage();
+		Console.ReadKey();   
+	}
+}
+
+O/p
+"In BaseClass A "
+"In DerivedClass B "
+"In DerivedClass B "
+
+
+But here how can even a BaseClassA reference variable point to DerivedClassC object and it prints DerivedClassB's output ?
+The code calls the method which is declared by BaseClassA but overridden by DerivedClassB.
+The method declared in DerivedClassC is a new method, entirely separate from the one declared in BaseClassA... as if it had a different name, in a way.
+
+Effectively, think of it this way:
+If DerivedClassC didn't declare a showMessage method at all, it would inherit the implementation from DerivedClassB, right?
+Introducing a new method doesn't change the output because it's a separate method which isn't involved in overriding the method introduced in DerivedClassA.
+So the output is the same as with the previous step.
+I think that trying DerivedClassC as just
+
+class DerivedClassC : DerivedClassB
+{
+}
+and understanding that output is the key to understanding the later behaviour.
+
+77.	Indexes
+78.	How Index must have developed using Data structures
+79.	Which one will be the fastest search
+80.	Anagrams Program
+81.	Reverse the words order Program = This is me => me is This
+
+public class ReverseWords
+{
+    public static void Main()
+    {
+        string[] s =
+        "i like this program very much".Split(' ');
+        string ans = "";
+        for (int i = s.Length - 1;
+                 i >= 0; i--)
+        {
+            ans += s[i] + " ";
+        }
+        Console.Write("Reversed String:");
+        Console.Write(ans.Substring(0,ans.Length - 1));
+    }
+}
+--above is basically reverse of for loop
+--jquery
+var backway = oneway.split("").reverse().join("");
+
+82.	Select the top 9th highest employee salary
+83.	Stack vs Heap
+84.	Why static members or functions are used
+a.	The keyword static implies that only one instance of the member exists for a class.
+Static variables are used for defining constants because their values can be retrieved by invoking the class without creating an instance of it.
+85.	MVC – how it works
+86.	Abstract vs Interface
+87.	How will you optimise the sql query
+88.	3 5 8 – litres of buckets , at the end 4 liters should be there
+89.	Why Static constructors are used.
+a.	A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed only once.
+90.	Entity Framework
+
+------------------HCL--------------
+
+1.	What is Session
+2.	Custom Validator
+3.	URL Rewriting
+4.	RedirectAction
+5.	Trace VS Debug
+6.	SQL Functions(2 types)
+7.	Dynamic Validation
+8.	Normal View VS Partial View
+9.	SQL query to get the common records
+10.	Datepart
+11.	Datename
+12.	Offset
+13.	2nd Highest salary
+
+-------------Cybage-------------------
+1.	Abstraction
+2.	How username & password is saved.
+3.	RedirectAction
+4.	Can we use cursors in SP
+5.	How to load a dialog
+6.	Custom Filters
+7.	Server side validation apart from DataAnnotation
+8.	TempData/How to pass data from controller to controller
+
+Tempdata, session or redirecttoAction(actionname,controllname,new{name:'Rajesh'});
+RedirectedAction should take argument of same name 
+
+9.	WebAPI
+10.	Can we use DML statements in View
+
+------------TCS-------------------------
+
+1.	Action Filters
+2.	Readonly
+3.	Static
+4.	How to concate a string , what will you use?(StringBuilder)
+5.	4 pillars of Oops
+6.	How will you implement if you wanna implement Class C  inheriting Class A and Class B(Use Interfaces)
+7.	Suppose Class A and Class B have same method name(use explicit Interface implementation)
+8.	How will you fix if you website is slow
+9.	What is SP, why to use it
+10.	How to optimise Select query
+11.	How deployment takes place in your project
+12.	How stories & bugs are logged in your project
+13.	$ using in jquery Can that be changed to any other sign
+
+var newSelectorOfYourChoice = jQuery.noConflict();
+
+14.	== vs === in jquery
+
+0 == false   // true
+0 === false  // false, because they are of a different type
+1 == "1"     // true, automatic type conversion for value only
+1 === "1"    // false, because they are of a different type
+null == undefined // true
+null === undefined // false
+'0' == false // true
+'0' === false // false
+
+15.	How MVC works
+16.	CTE
+17.	Where you store your error logs
+18.	Is and as keywords in C#
+
+The is operator checks if an object can be cast to a specific type.
+if (someObject is StringBuilder) ...
+
+The as operator attempts to cast an object to a specific type, and returns null if it fails.
+StringBuilder b = someObject as StringBuilder;
+if (b != null) ...
+
+The cast operator attempts to cast an object to a specific type, and throws an exeption if it fails.
+StringBuilder b = (StringBuilder)someObject.
+
+----------------INube Software Solution--------------
+
+1.	Serialization
+2.	Continue vs break
+3.	Late binding vs early binding
+
+Early Binding
+
+The name itself describes that compiler knows about what kind of object it is, what are all the methods and properties it contains.
+As soon as you declared the object, .NET Intellisense will populate its methods and properties on click of the dot button.
+In the above examples, if we type the cboItem and place a dot followed by, it will automatically populate all the methods, events and properties of a combo box, because compiler already know it's an combobox.
+
+Late Binding
+
+The name itself describes that compiler does not know what kind of object it is, what are all the methods and properties it contains.
+You have to declare it as an object, later you need get the type of the object, methods that are stored in it.
+Everything will be known at the run time.
+Here during the compile time, type of objItems is not determined.
+We are creating an object of a dll and assigning it to the objItems, so everything is determined at the run time.
+
+
+4.	If we use [Authorize] attribute on controller but in this controller I want to use a method on which I don’t want [Authorize] attribute .How will you achieve this
+5.	AllowAnonymous attribute
+6.	Action Filters
+7.	Why MVC is better than normal asp.net application
+8.	Selectors in JQuery
+9.	Difference between attr() & Prop() property in Jquery
+
+Use prop() over attr() in the majority of cases.
+A property is the current state of the input element. An attribute is the default value.
+A property can contain things of different types. An attribute can only contain strings.
+Properties are generally simpler to deal with than attributes.
+An attribute value may only be a string whereas a property can be of any type.
+For example, the checked property is a Boolean, the style property is an object with individual properties for each style, the size property is a number.
+
+10.	Triggers
+11.	Select the max 3rd salary from the employee table
+12.	Compile time polymorphism vs runtime polymorphism
+
+----------------GeoAmps---------------------
+
+1.	Pass By Value & Pass By Reference
+2.	Operator Overloading
+3.	Tuple
+4.	_ViewStart
+5.	Partial Views
+6.	Return Types of ActionResult and what will you pass to return statemnet
+7.	Overloading vs Overriding
+8.	Interfaces
+9.	4 pillars of Oops
+10.	Abstrcation
+11.	static readonly
+12.	readonly
+13.	Out parameters & why we use it
+
+Out parameter can pass without its declaration and initialization.
+Out parameter can use var type in the method parameter list.
+It is not obligatory that Out parameter name should be same in both function definition and call.
+
+double circumference = CalculateCircle(radious, out double area);  
+static double CalculateCircle(double radious, out double area)  
+{  
+	area = Math.PI * Math.Pow(radious, 2);  
+	double circumference = 2 * Math.PI * radious;  
+	return circumference;  
+}  
+A method can have one or more than one Out parameter.
+When using a method which has Out parameter, you don’t need to declare and initialize that Out parameter before. 
+double circumference = CalculateCircle(radious, out double area);  
+The Out parameter can declare in-line at the time of method call such as area parameter.
+The in-line declared Out parameter can be accessed in the same block. Its scope is in the method where it calls.
+The called method is required to assign a value to Out parameter before the method returns.
+The method can be overloaded based on Out parameters.
+Async methods don’t have out parameter.
+Iterator methods don’t have out parameter.
+
+14.	Triggers
+15.	magic tables
+16.	How your login page works
+17.	How MVC works
+18.	Stored procedures
+19.	Can fucntion be called inside SP
+20.	Can View be called inside SP
+21.	Can SP be called inside fucntion
+22.	Can View be called inside function
+23.	How to create SP
+24.	How to pass parameter in SP
+25.	SP VS View
+26.	 String A="test"
+ A=1
+Output?
+27.	Write a program using out paramters
+28.	If(a==b & C==D)  VS  If(a==b && C==D)
+29.	int readonly abc
+       abc=1
+abc=2 Output abc?
+30.	Write a query using Sub Query
+31.	Joins
+32.	Which Joins is used commonly & why
+33.	How to update multiple fields in just one update query
+34.	DECLARE @TEMP1 VARCHAR(200)='SAN#GRAM #PAW#AR.'
+Out: SANGRAM PAWAR
+ANS : SET @TEMP1=REplace(@TEMP1,'#','')
+
+-------------------Fendalh technologies------------------
+1.	Cookie
+2.	Login process in your project
+3.	Can partial view be called in partial view
+4.	How many verbs can be used in ajax call
+5.	use strict in JS
+6.	JavaScript VS JQuery
+7.	Can include DML in SP
+8.	Can include DML in function ? No ? WHy
+9.	Different Joins
+10.	Can we use classes in JS
+11.	Types of ActionResult
+12.	SQL vs SP
+13.	Why we use fucntions in SQL
+14.	MVC Design pattern
+15.	Filters
+16.	Action Filters
+17.	Will every time the Exception filters
+18.	Order of Filters
+19.	Attribute routing
+20.	When to use Attribute routing
+21.	Inner join vs outer join
+22.	Oops
+23.	Abstract class vs Interfaces
+24.	Encapsulation
+25.	Explain your project
+26.	Dataannotations & types
+27.	Which side validation is safe? – Server side, because there might be chances of hackers disabling javascript
+
+-------------Sterlite technologies----------------
+1.	You have a table of employees with id, name, email address, salary etc. 
+Write an SQL query to print names of all the employees whose salary greater than or equal to the employee with first name "Rita".
+Candidate must be crisp in the syntax of the SQL query. Follow Up Question: Now, assume that you have two tables: "employees" and "salaries".
+The employee table has basic information: ID, first name, last name, email address, address etc. Salaries table has employee-id and salary. 
+Query to be executed is the same: "List names of all the employees whose salary is greater than or equal to Rita's salary".
+
+2.	Write a query to create composite index ?
+
+CREATE INDEX index_name ON tableName (columnName1, columnName2, ...);
+CREATE UNIQUE INDEX index_name ON tableName (columnName1, columnName2, ...) ;
+ALTER TABLE tableName DROP INDEX index_name;
+
+Sometimes our columns contain duplicate or repetitive data, due to which the indexing is also duplicate and repetitive.
+To maintain the uniqueness of our indexes, we pass multiple columns so that the indexes are unique.
+
+3.	Write a program to get the first duplicate element "john doe" o/p = o
+4.	MethodOverloading vs MethodOverriding
+5.	How do we secure webconfig files
+6.	Can we have multiple webconfigs file in the project - Yes
+7.	How to create a primary key on the table
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,    
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+
+ALTER TABLE Persons ADD PRIMARY KEY (ID);
+ALTER TABLE Persons ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+
+ALTER TABLE Persons DROP PRIMARY KEY;
+ALTER TABLE Persons DROP CONSTRAINT PK_Person;
+
+8.	API
+9.	How to get XML result from API
+10.	Garbage collectors
+11.	Derived class
+12.	Routing in MVC
+13.	DataAnnotations
+14.	Client side vs Server side validation
+15.	Dynamic variable in C#
+
+Var |	Dynamic
+It is introduced in C# 3.0. |	It is introduced in C# 4.0
+The variables are declared using var keyword are statically typed.|	The variables are declared using dynamic keyword are dynamically typed.
+The type of the variable is decided by the compiler at compile time.|	The type of the variable is decided by the compiler at run time.
+The variable of this type should be initialized at the time of declaration. So that the compiler will decide the type of the variable according to the value it initialized.|
+The variable of this type need not be initialized at the time of declaration. Because the compiler does not know the type of the variable at compile time.
+If the variable does not initialized it throw an error.|	If the variable does not initialized it will not throw an error.
+It support intelliSense in visual studio.|	It does not support intelliSense in visual studio
+var myvalue = 10; // statement 1 |	dynamic myvalue = 10; // statement 1
+myvalue = “GeeksforGeeks”; // statement 2	|myvalue = “GeeksforGeeks”; // statement 2
+Here the compiler will throw an error because the compiler has already decided the type of the myvalue variable using statement 1 that is an integer type.
+When you try to assign a string to myvalue variable, then the compiler will give an error because it violating safety rule type.|
+Here, the compiler will not throw an error though the type of the myvalue is an integer.
+When you assign a string to myvalue it recreates the type of the myvalue and accepts string without any error.
+It cannot be used for properties or returning values from the function. It can only used as a local variable in function.|
+It can be used for properties or returning values from the function.
+
+
+16.	Validators in mvc
+17.	What data annotation you will use for a phoneno property 
+
+Second round
+
+18.	Disposable class
+19.	Poco class
+20.	Poco proxy
+21.	Garbage collector
+22.	Static Class
+23.	Can static class have non static members? If No why
+24.	How to initialise static members ? In Static Constructor
+25.	Can there be a static parameterised contructor
+26.	Delete the duplicates from the table
+27.	Singleton class
+28.	call method in jquery
+29.	managed code vs unmanaged code
+30.	write a program to reverse a string
+31.	Directives in Angular
+32.	ngApp in Angular
+33.	Components in Angular
+34.	Design Patterns
+35.	Truncate vs delete
+36.	HTML Helpers
+37.	Customise helpers
+38.	Data anatations
+39.	Order of Filters (Can the order be changed?)
+40.	NonAction attribute
+41.	Throw vs throw ex;
+42.	When static constructor get called
+43.	Types of classes
+
+----------ConnectWise-------------------
+
+1.	Architecture of your project
+2.	Entity Framework
+3.	How to alter the column name in DB
+4.	How to get the top 3rd salary from the table
+5.	Functions in SQL Server
+6.	Can we update the functions table created
+7.	Can SP be called in function
+8.	How to delete duplicates from the table
+9.	Exception Handling in C#
+10.	Abstract Class
+11.	Static
+12.	Interface vs Abstract Class
+13.	 Interface A{
+Void display()
+}
+Interface B{
+Void display()
+}
+Class C:A,B{
+Void display()
+{
+Print("Hello");
+}
+} Whats the o/p?
+14.	Program to Combine two arrays
+15.	    Class A{
+Void Display(
+Print(A)
+)
+}
+Class B:A
+{
+Void Display(){
+Print(B)
+}
+}
+     B obj1=new A();
+    obj1.display();
+A obj=new B();
+        obj.display();
+    B b=new B();
+        b.display();
+
+-----------------Apollo Med-----------------
+
+Part 1: Remove All Adjacent Duplicates In String
+you are giving string s consisting of lowercase of english letters. remove duplicate adjacent and equal letters.
+
+Input: s = "abbaca" -> "aaca" -> "ca"
+"ca"
+in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move. The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+Input: s = "azxxzy" -> "azzy" -> "ay"
+Output: "ay"
+**/
+2.  Highest Salary  SQL Query
+3. Name of the employee having Highest Salary  SQL Query
+4. Group by in LINQ
+var results = persons.GroupBy(
+    p => p.PersonId, 
+    p => p.car,
+    (key, g) => new { PersonId = key, Cars = g.ToList() });
+
+-------------------eClerx------------------------
+1.	What is the use of SP
+2.	SP VS functions
+3.	Views 
+4.	Views can have DML statements?
+5.	What will you do to tune SP
+6.	Can functions can be used in View
+7.	Can you reseed the identity column? DBCC CHECKIDENT ('table_name', RESEED, new_value);
+8.	Normalisation
+9.	We need to add primary key forcefully?
+10.	Composite primary key
+11.	Can we create a foreign key on composite key?
+12.	ASP.NET vs ASP.NET MVC
+ASP.NET is a web platform. It provides a layer that sits on top of IIS (the web server) which facilitates the creation of web applications and web services. ASP.NET MVC is a framework specifically for building web applications. It sits ontop of ASP.NET and uses APIs provided by ASP.NET.
+13.	ASP.NET MVC advantage
+14.	Helpers
+
+--------------------GSLab------------------
+
+1.	How to store multiple datatype 
+	object - multiple datatype store
+2.	out/ref
+3.	static constructor
+4.	abstract class
+5.	when to use abstract class over interfaces
+6.	can we create instance of abstract class
+7.	Write a program to return true if a string has any repeating character
+
+string test1 = "abcde";
+string test2 = "aabcde";
+string test3 = "abcdea";
+
+public bool isRepeated (string input)
+{
+	string result = string.Empty;
+	if(!string.isNullorWhitespace(input))
+	{
+		for(int i=0; i< input.Length ;i++)
+		{
+			if(!result.Contains(input[i]))
+			{
+				result +=input[i];
+ 			}
+			else
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+8.	From the list of class TestModel get the data whose name is abc
+public class TestModel
+{
+public string name = "";
+public int id;
+}
+List<TestModel> TestList = new List<TestModel>();
+
+var data = TestList?.Where(x => x.name == "abc");
+
+9.	If the function in the base class should be accessed by only derive class then what access specifier should we use?  protected
+10.	If the function in the base class should be accessed only within the namespace then what access specifier should we use?  Protected internal
+11.	multithreading
+12.	Get the top two comments for a username sql query
+User
+Id userName
+
+Blog
+Id userId Description
+
+Post
+Id BlogId Description
+
+Comment
+Id PostId Comment
+
+SELECT Top 2 c.Comment FROM User u
+join Blog b on b.userId = u.id
+join Post p on p.BlogId = b.Id 
+join Comment c on c.PostId = p.Id
+order by c.Id desc where u.username = '';
+13.	 maxtoolsize
+14.	ajax
+15.	RequiredIF data annotation
+16.	logging framework
+17.	maxjsonlength/maxjsonlimit reached error when passed data from controller to view
+define <jsonSerialization maxJsonLength="50000000"/> in webconfig
+18.	What are the rules to write Action methods in Controller
+The method must be public.
+The method cannot be a static method.
+The method cannot be an extension method.
+The method cannot be a constructor, getter, or setter.
+The method cannot have open generic types.
+The method is not a method of the controller base class.
+The method cannot contain ref or out parameters
+19.	How to create extensible methods?
+
+-------------------AllScripts------------
+1.	OOPs concepts and where have you used it in your project
+2.	Abstraction
+3.	Interfaces , Why we use it
+4.	Partial class
+5.	Abstract class
+6.	SOLID principles and where have you used it in your project
+7.	Method overriding vs method overloading
+8.	Database first approach
+9.	Rename a table exec sp_rename 'schema.old_table_name', 'new_table_name'.
+10.	Rename a column EXEC sp_rename 'Sales.SalesTerritory.TerritoryID', 'TerrID', 'COLUMN'
+11.	Delete a table
+12.	Normalisation and where have you used it in your project
+13.	Constant vs readonly
+14.	MVC life cycle
+15.	Areas
+16.	Partial Views
+
+-------------------GEPWorldwide---------------
+
+1.	Foreign key Vs composite key
+2.	SQL Query for composite primary key
+ALTER TABLE PrimaryTablename ADD CONSTRAINT constraintname  Primary key on (primarykeycolumn1, primarykeycolumn2,....);
+3.	Triggers
+4.	SP VS function
+5.	Exceptional Handling in SP
+6.	SQL query to add dates
+7.	SQL Query to convert UTC datetime to IST datetime
+8.	Magic Tables
+9.	pass by ref , pass by out with examples
+10.	Write a program to count the no of occurrence
+Input Char : "A"
+Input String : "Ambani has no money"
+11.	SP
+12.	MVC life cycle
+13.	AuthGuard in Angular
+14.	lazy loading in Angular
+15.	Write a program to print the missing no in the array int[] arr = { 1, 2, 3, 4, 5 ,7};
+16.	different Javasciprt data types
+17.	 ==  vs ===
+18.	RouteConfig ?
+19.	Managed & unmanaged code
+20.	Project structure
+21.	SOLID principle
+22.	Dependency Injection
+23.	Design Pattern
+24.	Web APIs
+25.	Error handling in SP
+26.	If there is an error on the customer end , tell the steps how would you replicate to fix that.
+
+Managerial Round
+1.	Roles & responsiblities
+2.	Angular 
+3.	Cors
+4.	Observable vs Promise
+5.	Web component vs Custom component
+6.	What languages Angular can be written in?
+7.	Web APi's
+8.	Coarse in Web API
+9.	continue vs break statement
+10.	Factory design pattern 
+11.	boxing unboxing
+12.	Singleton design pattern
+13.	Multithreading
+14.	Async Await 
+15.	Thread safe Singleton design pattern
+
+--------------Woltus Kluwer-----------------
+
+1.	Write a palindrome code
+2.	Output of following code
+    class Program
+{
+static void Main(string[] args)
+{
+B bObj= new B(2);
+Console.ReadLine();
+}
+}
+public class A
+{
+public A()
+{
+Console.WriteLine("Hi you are in class A");
+}
+public A(int x)
+{
+}
+}
+public class B:A
+{
+public B()
+{
+Console.WriteLine("Hi you are in class B");
+}
+}
+
+
+
+
+3.	Output of following code
+    public class Program
+{
+public static void Main()
+{
+classA a = new classC();
+Console.WriteLine(a.Print());
+}
+public class classA
+{
+public virtual string Print()
+{
+return "classA";
+}
+}
+public class classB : classA
+{
+public override string Print()
+{
+return "classB";
+}
+}
+public class classC : classB
+{
+public new string Print()
+{
+return "ClassC";
+}
+}
+}
+
+4.	Drop VS TRuancate
+5.	Truncate vs Delete
+6.	Advanatges of SP
+7.	Indexes
+8.	Types of Indexes
+9.	Which one will you choose clustered or unclustered index?
+10.	Interfaces vs Abstract class, Give a scenario where you have used that
+11.	Why we use static class
+12.	Why we use seal class
+13.	Generic classes
+14.	Normal class vs Generic class
+15.	Filters
+16.	Jquery vs Javascript
+17.	document ready function vs on load function
+18.	can we have more than one document ready function and on load function in js file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
