@@ -1,0 +1,493 @@
+1) WHAT IS CLR?
+
+CLR is the basic and Virtual Machine component of the .NET Framework.
+It is the run-time environment in the .NET Framework that runs the codes and helps in making the development process easier by providing the various services.
+Basically, it is responsible for managing the execution of .NET programs regardless of any .NET programming language.
+Internally, CLR implements the VES(Virtual Execution System) which is defined in the Microsoft’s implementation of the CLI(Common Language Infrastructure). 
+
+The code that runs under the Common Language Runtime is termed as the Managed Code.
+In other words, you can say that CLR provides a managed execution environment for the .NET programs by improving the security,
+including the cross language integration and a rich set of class libraries, etc. CLR is present in every .NET framework version. 
+
+Role of CLR in the execution of a C# program
+
+Suppose you have written a C# program and save it in a file which is known as the Source Code.
+Language specific compiler compiles the source code into the MSIL(Microsoft Intermediate Language) 
+which is also known as the CIL(Common Intermediate Language) or IL(Intermediate Language) along with its metadata.
+Metadata includes all the types, actual implementation of each function of the program. MSIL is machine-independent code.
+
+Now CLR comes into existence. CLR provides the services and runtime environment to the MSIL code.
+Internally CLR includes the JIT(Just-In-Time) compiler which converts the MSIL code to machine code which further executed by CPU.
+CLR also uses the .NET Framework class libraries.
+Metadata provides information about the programming language, environment, version, and class libraries to the CLR by which CLR handles the MSIL code.
+As CLR is common so it allows an instance of a class that written in a different language to call a method of the class which written in another language.
+
+As the word specify, Common means CLR provides a common runtime or execution environment as there are more than 60 .NET programming languages. 
+
+Main components of CLR: 
+
+Common Language Specification (CLS): 
+It is responsible for converting the different .NET programming language syntactical rules and regulations into CLR understandable format.
+Basically, it provides Language Interoperability. Language Interoperability means providing execution support to other programming languages also in .NET framework. 
+
+Language Interoperability can be achieved in two ways : 
+
+Managed Code: The MSIL code which is managed by the CLR is known as the Managed Code. For managed code CLR provides three .NET facilities: 
+Unmanaged Code: Before .NET development, programming languages like.COM Components & Win32 API do not generate the MSIL code. So these are not managed by CLR rather managed by Operating System.
+
+Common Type System (CTS): 
+Every programming language has its own data type system, so CTS is responsible for understanding all the data type systems
+of .NET programming languages and converting them into CLR understandable format which will be a common format. 
+
+There are 2 Types of CTS that every .NET programming language have : 
+
+Value Types: Value Types will store the value directly into the memory location.
+These types work with stack mechanisms only. CLR allows memory for these at Compile Time.
+
+Reference Types: Reference Types will contain a memory address of value because the reference types won’t store the variable value directly in memory.
+These types work with Heap mechanism. CLR allot memory for these at Runtime.
+
+Garbage Collector: 
+It is used to provide the Automatic Memory Management feature. If there was no garbage collector, 
+programmers would have to write the memory management codes which will be a kind of overhead on programmers. 
+
+JIT(Just In Time Compiler): 
+It is responsible for converting the CIL(Common Intermediate Language) into machine code or native code using the Common Language Runtime environment. 
+
+Benefits of CLR: 
+
+It improves the performance by providing a rich interact between programs at run time.
+Enhance portability by removing the need of recompiling a program on any operating system that supports it.
+Security also increases as it analyzes the MSIL instructions whether they are safe or unsafe.
+Also, the use of delegates in place of function pointers enhance the type safety and security.
+Support automatic memory management with the help of Garbage Collector.
+Provides cross-language integration because CTS inside CLR provides a common standard that activates the different languages to extend and share each other’s libraries.
+Provides support to use the components that developed in other .NET programming languages.
+Provide language, platform, and architecture independence.
+It allows easy creation of scalable and multithreaded applications, as the developer has no need to think about memory management and security issues.
+
+2) HOW JIT WORKS?
+
+Just-In-Time compiler(JIT) is a part of Common Language Runtime (CLR) in
+.NET which is responsible for managing the execution of .NET programs regardless of any .NET programming language.
+A language-specific compiler converts the source code to the intermediate language.
+This intermediate language is then converted into the machine code by the Just-In-Time (JIT) compiler.
+This machine code is specific to the computer environment that the JIT compiler runs on. 
+
+Working of JIT Compiler: The JIT compiler is required to speed up the code execution and provide support for multiple platforms
+
+The JIT compiler converts the Microsoft Intermediate Language(MSIL) or Common Intermediate Language(CIL) into the machine code.
+This is done before the MSIL or CIL can be executed.
+The MSIL is converted into machine code on a requirement basis i.e. the JIT compiler compiles the MSIL or CIL as required rather than the whole of it.
+The compiled MSIL or CIL is stored so that it is available for subsequent calls if required. 
+
+Types of Just-In-Time Compiler: There are 3 types of JIT compilers which are as follows: 
+
+Pre-JIT Compiler: All the source code is compiled into the machine code at the same time in a single compilation cycle using the Pre-JIT Compiler. 
+This compilation process is performed at application deployment time. 
+And this compiler is always implemented in the Ngen.exe (Native Image Generator). 
+
+Normal JIT Compiler: The source code methods that are required at run-time are compiled into machine code the first time they are called by the Normal JIT Compiler. 
+After that, they are stored in the cache and used whenever they are called again. 
+
+Econo JIT Compiler: The source code methods that are required at run-time are compiled into machine code by the Econo JIT Compiler. 
+After these methods are not required anymore, they are removed. This JIT compiler is obsolete starting from dotnet 2.0
+
+Advantages of JIT Compiler: 
+
+The JIT compiler requires less memory usage as only the methods that are required at run-time are compiled into machine code by the JIT Compiler.
+Page faults are reduced by using the JIT compiler as the methods required together are most probably in the same memory page.
+Code optimization based on statistical analysis can be performed by the JIT compiler while the code is running.
+
+Disadvantages of JIT compiler:  
+
+The JIT compiler requires more startup time while the application is executed initially.
+The cache memory is heavily used by the JIT compiler to store the source code methods that are required at run-time.
+
+Note: Much of the disadvantages of the JIT compiler can be handled using the Ahead-of-time (AOT) compilation. 
+This involves compiling the MSIL into machine code so that runtime compilation is not required and the machine code file can be executed natively.
+
+ 
+3) WHAT IS ASSEMBLY?
+
+An assembly is the compiled output of your code, typically a DLL, but your EXE is also an assembly.
+It's the smallest unit of deployment for any .NET project.
+
+The assembly typically contains .NET code in MSIL (Microsoft Intermediate language) that will be compiled to native code
+("JITted" - compiled by the Just-In-Time compiler) the first time it is executed on a given machine.
+That compiled code will also be stored in the assembly and reused on subsequent calls.
+
+The assembly can also contain resources like icons, bitmaps, string tables and so on.
+Furthermore, the assembly also contains metadata in the assembly manifest - information like version number, strong name, culture, referenced assemblies and so forth.
+
+In 99% of your cases, one assembly equals a physical file on disk - the case of a multi-file assembly
+(one assembly, distributed across more than a single file) 
+appears to be a rather odd-ball edge case which I've never encountered so far in my 5+ years of .NET development.
+
+In a multifile assembly there would still be only one assembly manifest in a DLL or EXE and the MSIL code in multiple netmodule files.
+
+Put simply, it is the compiled project involving your classes and additional files, if there are. That is, each project in a solution is assembly.
+
+An assembly is a file that is automatically generated by the compiler upon successful compilation of every .NET application.
+It can be either a Dynamic Link Library or an executable file.
+It is generated only once for an application and upon each subsequent compilation the assembly gets updated.
+
+The structure of the assembly is as follows:
+
+PE header
+CLR header
+CLR metadata
+CLR
+IL code
+Native data
+
+When a source code is compiled by the language compiler it Generate a Managed Assembly and MSIL(MisroSoft Intermediate Language).
+That Assembly contains .dll or .exe file. An Assebmly can be of two types Private Assembly and Shared Assembly,
+shared Assembly is stored in GAC(Global Assembly Cache) so that any application can refer to it while private assembly
+is stored in application folder which can be used by only one Application.
+
+4) HOW GARBAGE COLLECTOR WORKS?
+
+Automatic memory management is made possible by Garbage Collection in .NET Framework. When a class object is created at runtime,
+certain memory space is allocated to it in the heap memory.
+However, after all the actions related to the object are completed in the program, the memory space allocated to it is a waste as it cannot be used.
+In this case, garbage collection is very useful as it automatically releases the memory space after it is no longer required. 
+
+Garbage collection will always work on Managed Heap and internally it has an Engine which is known as the Optimization Engine. 
+Garbage Collection occurs if at least one of multiple conditions is satisfied. These conditions are given as follows:
+
+1) If the system has low physical memory, then garbage collection is necessary.
+2) If the memory allocated to various objects in the heap memory exceeds a pre-set threshold, then garbage collection occurs.
+3) If the GC.Collect method is called, then garbage collection occurs.
+However, this method is only called under unusual situations as normally garbage collector runs automatically. 
+
+Phases in Garbage Collection
+There are mainly 3 phases in garbage collection. Details about these are given as follows:
+
+Marking Phase:
+A list of all the live objects is created during the marking phase.
+This is done by following the references from all the root objects.
+All of the objects that are not on the list of live objects are potentially deleted from the heap memory.
+
+Relocating Phase:
+The references of all the objects that were on the list of all the live objects are updated in the
+relocating phase so that they point to the new location where the objects will be relocated to in the compacting phase.
+
+Compacting Phase:
+The heap gets compacted in the compacting phase as the space occupied by the dead objects is released and the live objects remaining are moved.
+All the live objects that remain after the garbage collection are moved towards the older end of the heap memory in their original order. 
+
+Heap Generations in Garbage Collection
+The heap memory is organized into 3 generations so that various objects with different lifetimes can be handled appropriately during garbage collection.
+The memory to each Generation will be given by the Common Language Runtime(CLR) depending on the project size.
+Internally, Optimization Engine will call the Collection Means Method to select which objects will go into Generation 1 or Generation 2.  
+
+Generation 0 :
+All the short-lived objects such as temporary variables are contained in the generation 0 of the heap memory.
+All the newly allocated objects are also generation 0 objects implicitly unless they are large objects.
+In general, the frequency of garbage collection is the highest in generation 0.
+
+Generation 1 :
+If space occupied by some generation 0 objects that are not released in a garbage collection run, then these objects get moved to generation 1.
+The objects in this generation are a sort of buffer between the short-lived objects in generation 0 and the long-lived objects in generation 2.
+
+Generation 2 :
+If space occupied by some generation 1 objects that are not released in the next garbage collection run, then these objects get moved to generation 2.
+The objects in generation 2 are long lived such as static objects as they remain in the heap memory for the whole process duration.
+
+Note: Garbage collection of a generation implies the garbage collection of all its younger generations.
+This means that all the objects in that particular generation and its younger generations are released.
+Because of this reason, the garbage collection of generation 2 is called a full garbage collection as all the objects in the heap memory are.released.
+Also, the memory allocated to the Generation 2 will be greater than Generation 1’s memory and similarly the memory of Generation 1
+will be greater than Generation 0’s memory(Generation 2 > Generation 1 > Generation 0).
+
+Benefits of Garbage Collection
+ 
+1) Garbage Collection succeeds in allocating objects efficiently on the heap memory using the generations of garbage collection.
+2) Manual freeing of memory is not needed as garbage collection automatically releases the memory space after it is no longer required.
+3) Garbage collection handles memory allocation safely so that no objects use the contents of another object mistakenly.
+4) The constructors of newly created objects do not have to initialize all the data fields as garbage collection clears the memory of objects that were previously released.
+
+5) WHAT IS REFLECTION AND WHY DO WE USE?
+
+Reflection is a mechanism by which we can get metadata information from assembly at run time.
+If we want to know assembly information at run time ,then we use reflection.
+Reflection are used for data binding in .NET Framework. It is also used for testing in .NET Framework.
+
+The main value of Reflection is that it can be used to inspect assemblies, types, and members.
+It's a very powerful tool for determining the contents of an unknown assembly or object and can be used in a wide variety of cases.
+Opponents of Reflection will cite that it is slow, which is true when compared to static code execution--
+however Reflection is used throughout the .NET framework, and provided that it's not abused it can be a very powerful tool in the toolkit.
+
+Some useful applications:
+Determining dependencies of an assembly
+Location types which conform to an interface, derive from a base / abstract class, and searching for members by attributes
+(Smelly) testing - If you depend on a class which is untestable (ie it doesn't allow you to easily build a fake) 
+you can use Reflection to inject fake values within the class--it's not pretty, and not recommended, but it can be a handy tool in a bind.
+Debugging - dumping out a list of the loaded assemblies, their references, current methods, etc...
+
+There are many uses for reflection:
+
+Iterating through properties in an object.
+Invoking a method that's defined at runtime.
+Many other other on the same vein.
+However, one of my favorite uses of reflection is to find properties that have been marked with attributes.
+
+For example, I've written attributes that mark which properties in my classes should be indexed using Lucene.
+At runtime, I can look at any class, and There are many uses for reflection:
+
+Reflection is just a way of investigating objects during run-time. You shouldn't use it if you don't need to do just that.
+Reflection allows an application to collect information about itself and also to manipulate on itself.
+It can be used to find all types in an assembly and/or dynamically invoke methods in an assembly.
+
+System.Reflection:
+namespace contains the classes and interfaces that provide a managed view of loaded types, methods, and fields,
+with the ability to dynamically create and invoke types; this process is known as Reflection in .NET framework.
+
+System.Type:
+class is the main class for the .NET Reflection functionality and is the primary way to access metadata.
+The System.Type class is an abstract class and represents a type in the Common Type System (CLS).
+
+Reflection is commonly used in IoC containers.
+Let's say you want to register every concrete class the ends with the word "Controller".
+Reflection makes that a piece of cake. 
+
+6) STRATEGY DESIGN PATTERN?
+7) DIFF BETWEEN MANAGED AND UNMANAGED CODE.
+8) WHY VARIABLES STORED FIRST IN STACK?
+
+In a stack, the memory gets managed for you. You don’t have to allocate memory by hand, or free it once you don’t need it any more.
+Reading from and writing to stack variables is very fast because the CPU organizes stack memory pretty efficiently.
+A stack has size limits and the variables only exist while the function is running. Once a function exits, all the automatic variables get popped.
+
+9) HOW INDEXING WORKS?
+10) IF WE HAVE MORE THAN 10 INDEX IN 10 COLUMNS WILL IT BE BENEFICIAL OR IT WIL SLOW DOWN THE PERFORMANCE AND WHY?
+
+Sometimes, 5 indexes aren’t enough. Sometimes your users want to filter or sort by lots of different fields on a really wide table.
+However, the more indexes you add, the slower your inserts and deletes will go, and the more competition pages will have for precious memory space.
+You may have to throw hardware at it in the form of more memory and faster storage.
+
+Sometimes, even just 5 indexes are too many.
+When you have a table where insert and delete speeds are absolutely critical, and select speeds don’t matter, then you can increase performance by cutting down on your indexes.
+
+Sometimes, 5 columns are too many. If you’re indexing big VARCHAR(MAX) columns, or you’re index hot columns (columns that constantly change), you can still run into problems.
+And yes, included columns count against your total – if that surprises you, watch my free How to Think Like the Engine class to learn how pages are built.
+
+Sometimes, 5 columns aren’t enough. Maybe you’ve got a query that has 3 fields in the filter, the combination of which is extremely selective, and they just need to return 4 fields in the SELECT.
+That’d be 7 fields. That’s completely okay – remember, Brent’s 5 and 5 Rule just stems from the fact that I have 5 fingers on my left hand, and 5 fingers on my right hand.
+If I’d have had an accident in shop class, we might be talking about Brent’s 4 and 5 Rule, and laughing about my lack of skill with the table saw.
+
+****
+No, you don't index all columns. You index columns that are specifically involved in a WHERE clause,
+and sometimes if they're involved in an ORDER BY.
+
+The more indexes you add the slower writes will be but the faster reads will be.
+This is a classic trade-off. Evaluate carefully what indexes you need and apply them only if there will be a tangible benefit.
+Don't just slap them on because you feel like they should be there.
+
+On super tiny tables, those with <1000 rows, indexes won't help that much because a table scan won't take that long.
+On anything non-trivial they're absolutely essential.
+
+If you're having performance problems I'd suggest that your schema is the biggest obstacle, not the lack of indexes.
+
+Indexing all columns is not correct. It affects performance of write operations. Each additional index requires additional time to update after write operation(Insert, update & delete).
+Also each index costs additional space. You should index only the columns which will be used for searching.
+
+The order of the columns in your index makes quite a difference, and the query optimizer can't just use any column somewhere in the middle of an index for lookups.
+
+Don't just blindly index every column just because you can - this is a guarantee for lousy system performance - any index also requires maintenance and upkeep,
+so the more indices you have, the more your INSERT, UPDATE and DELETE operations will suffer (get slower) since all those indices need to be updated.
+
+
+11) HOW ASYNC PROGRAMMING WORKS IN .NET CORE?
+12) HOW TO CALL ASYNC METHOD FROM NON ASYNC METHOD?
+
+public LogEntity GetLog()
+    {
+        Task<LogEntity> task = Task.Run<LogEntity>(async () => await GetLogAsync());
+        return task.Result;
+    }
+
+    public async Task<LogEntity> GetLogAsync()
+    {
+        var result = await _logger.GetAsync();
+        // more code here...
+        return result as LogEntity;
+    }
+
+13) HOW DEPENDENCY INJECTION WORKS WHEN .NET CORE DID NOT HAVE IT BY DEFAULT?
+14) SERVICE LIFETIME IN .NET CORE, WHICH TO CHOOSE OVER OTHER?
+15) MVC LIFECYCLE
+16) PROTOTYPE IN JAVASCRIPT 
+
+JavaScript is a prototype based language, so, whenever we create a function using JavaScript,
+JavaScript engine adds a prototype property inside a function, Prototype property is basically an object (also known as Prototype object),
+where we can attach methods and properties in a prototype object, which enables all the other objects to inherit these methods and properties.
+
+function Student() {
+    this.name = 'John';
+    this.gender = 'Male';
+}
+
+var studObj1 = new Student();
+studObj1.age = 15;
+alert(studObj1.age); // 15
+
+var studObj2 = new Student();
+alert(studObj2.age); // undefined
+
+As you can see in the above example, age property is attached to studObj1 instance.
+However, studObj2 instance will not have age property because it is defined only on studObj1 instance.
+
+So what to do if we want to add new properties at later stage to a function which will be shared across all the instances?
+
+The answer is Prototype.
+
+function Student() {
+    this.name = 'John';
+    this.gender = 'M';
+}
+
+Student.prototype.age = 15;
+
+var studObj1 = new Student();
+alert(studObj1.age); // 15
+
+var studObj2 = new Student();
+alert(studObj2.age); // 15
+
+17) Closure in javascript 
+
+A closure is a function having access to the parent scope, even after the parent function has closed.
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+function myFunction() {
+  a = 4;
+}
+
+18) ASYNC AWAIT IN JS
+
+Async:
+It simply allows us to write promises based code as if it was synchronous and it checks that we are not breaking the execution thread.
+It operates asynchronously via the event-loop. Async functions will always return a value.
+It makes sure that a promise is returned and if it is not returned then JavaScript automatically wraps it in a promise which is resolved with its value.
+
+Await:
+Await function is used to wait for the promise. It could be used within the async block only.
+It makes the code wait until the promise returns a result. It only makes the async block wait.
+
+function asynchronous_operational_method() {
+  let first_promise = new Promise((resolve, reject) => resolve("Hello"));
+  let second_promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(" GeeksforGeeks..");
+    }, 1000);
+  });
+  let combined_promise = Promise.all([first_promise, second_promise]);
+  return combined_promise;
+}
+ 
+async function display() {
+  let data = await asynchronous_operational_method();
+  console.log(data);
+}
+ 
+display();
+
+OUTPUT
+[ 'Hello', ' GeeksforGeeks..' ]
+
+The word “async” before a function means one simple thing: a function always returns a promise.
+Other values are wrapped in a resolved promise automatically.
+For instance, this function returns a resolved promise with the result of 1
+We could explicitly return a promise, which would be the same:
+
+async function f() {
+  return Promise.resolve(1);
+}
+
+f().then(alert); // 1
+
+The keyword await makes JavaScript wait until that promise settles and returns its result.
+Here’s an example with a promise that resolves in 1 second:
+
+async function f() {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("done!"), 1000)
+  });
+
+  let result = await promise; // wait until the promise resolves (*)
+
+  alert(result); // "done!"
+}
+
+f();
+
+The function execution “pauses” at the line (*) and resumes when the promise settles, with result becoming its result.
+So the code above shows “done!” in one second.
+
+Let’s emphasize: await literally suspends the function execution until the promise settles, and then resumes it with the promise result.
+That doesn’t cost any CPU resources, because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+It’s just a more elegant syntax of getting the promise result than promise.then. And, it’s easier to read and write.
+If we try to use await in a non-async function, there would be a syntax error:
+
+19) CLASS INHERITANCE IN JS
+
+To create a class inheritance, use the extends keyword.
+Create a class named "Model" which will inherit the methods from the "Car" class:
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  show() {
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+
+let myCar = new Model("Ford", "Mustang");
+document.getElementById("demo").innerHTML = myCar.show();
+
+The super() method refers to the parent class.
+By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.
+Inheritance is useful for code reusability: reuse properties and methods of an existing class when you create a new class.
+
+Hoisting
+
+Unlike functions, and other JavaScript declarations, class declarations are not hoisted.
+That means that you must declare a class before you can use it:
+
+//You cannot use the class yet.
+//myCar = new Car("Ford")
+//This would raise an error.
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+
+//Now you can use the class:
+let myCar = new Car("Ford")
+
+Note: For other declarations, like functions, you will NOT get an error when you try to use it before it is declared,
+because the default behavior of JavaScript declarations are hoisting (moving the declaration to the top).
+
+20) FIND COMMON ITEMS FROM 2 ARRAY IN JS
+21) HOW TO CREATE AND REGISTER MIDDLEWARE IN .NET CORE.
+22) WHAT IS CONFIGURE METHOD IN .NET CORE 
+23) HOW MANY TYPES OF FILTERS WE HAVE IN .NET AND EXPLAIN EACH.
+24) INHERITANCE IN OOPS WITH SOME EXAMPLES. 
+25) DATA HIDING IN OOPS.
+26) SINGLETON DESIGN PATTERN WITH EXAMPLES. 
+27) DEPENDENCY INJECTION, WHY TO USE THIS?

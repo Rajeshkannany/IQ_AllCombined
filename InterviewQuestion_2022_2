@@ -1,0 +1,966 @@
+
+1) measure taken if ur website is slow
+	Minimize HTTP requests
+	Minify and combine files
+	Use asynchronous loading for CSS and JavaScript files
+	Defer JavaScript loading
+	Minimize time to first byte
+	Time to first byte, or TTFB, is the amount of time a browser has to wait before getting its first byte of data from the server. 
+	Google recommends a TTFB of less than 200 ms.
+	Reduce server response time
+	Choose the right hosting option for your needs
+	Run a compression audit
+	Enable compression
+	Enable browser caching
+	Reduce image sizes
+	Use a CDN
+	Use external hosting platforms
+	Optimize CSS delivery
+	Prioritize above-the-fold content (lazy loading)
+	Reduce the number of plugins you use on your site
+	Reduce redirects
+	Reduce external scripts
+	Monitor your speed over time & monitor mobile speed
+	Database optimization
+	https://www.crazyegg.com/blog/speed-up-your-website/
+
+2) pagination in webapi
+https://www.c-sharpcorner.com/article/how-to-do-paging-with-asp-net-web-api/
+
+3) attribute routing in webapi
+
+**IMP**
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
+**
+
+// Attribute routing.
+        config.MapHttpAttributeRoutes();
+
+// Convention-based routing.
+config.Routes.MapHttpRoute(
+	name: "DefaultApi",
+	routeTemplate: "api/{controller}/{id}",
+	defaults: new { id = RouteParameter.Optional }
+);
+		
+Conventional based routing is defined in config file whereas attribute routing is defined at controller level, action level etc
+Add config.maphttpattributeroutes() in config file for attribute routing to work.
+
+Routing is how Web API matches a URI to an action. Web API 2 supports a new type of routing, called attribute routing.
+As the name implies, attribute routing uses attributes to define routes.
+Attribute routing gives you more control over the URIs in your web API.
+For example, you can easily create URIs that describe hierarchies of resources.
+
+[Route("api/[controller]")]
+[ApiController]
+public class ValuesController1 : ControllerBase
+{
+    // GET: api/Values
+    [HttpGet]
+    public IEnumerable<string> Get()
+    {
+        return new string[] { "value1", "value2" };
+    }
+
+    // GET api/Values/5
+    [HttpGet("{id}")]
+    public string Get(int id)
+    {
+        return "value";
+    }
+
+    // POST api/Values
+    [HttpPost]
+    public void Post([FromBody] string value)
+    {
+    }
+
+    // PUT api/Values/5
+    [HttpPut("{id}")]
+    public void Put(int id, [FromBody] string value)
+    {
+    }
+
+    // DELETE api/Values/5
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+    }
+}
+
+4) cors in webapi
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+
+5) static class..can it have non static method..can we inherit a static class
+
+https://www.c-sharpcorner.com/uploadfile/abhikumarvatsa/static-and-non-static-methods-in-C-Sharp/
+
+A static method belongs to the class and a non-static method belongs to an object of a class. The static methods can by accessed directly from the class,
+while non-static methods (or instance methods as I like to call them) have to be accessed from an instance.
+An example would be the static method "Show" from the static class MessageBox . When you need a messagebox, you just call a static method to show it.
+
+Example
+System.Windows.Forms.MessageBox.Show("Halo World!!");
+If it weren't static, you would first have to create an instance of the class that contains it it would be like:
+System.Windows.Forms.MessageBox msg = new System.Windows.Forms.MessageBox();
+msg.Show("Halo World!!");
+
+A static method is shared by all instances of the class.
+Whenever a method is called in C++/Java/C#, an implicit argument "this" reference is passed along with/without the other parameters.
+In case of a static method call, the "this" reference is not passed as static methods belong to a class and hence do not have the "this" reference.
+
+A non-static method can only be called on an object of a class that it belongs to.
+A static method can access only static members.
+A non-static method can access both static and non-static members because at the time when the static method is called,
+the class might not be instantiated (if it is called on the class itself).
+In the other case, a non-static method can only be called when the class has already been instantiated.
+
+Static classes are sealed and therefore cannot be inherited. They cannot inherit from any class except Object. 
+Static classes cannot contain an instance constructor. However, they can contain a static constructor.
+
+6) abstract class..can it have only non abstract..why use abstract class
+7) interface and its usage
+8) difference between renderpartial and partial
+
+Partial View
+
+Return Type: Partial View returns the MvcHtmlString which can be assigned to a variable and manipulate it if required.
+When to use: Whenever output of the partial view needs to be assigned to variable and manipulate with it then use partial view.
+Performance: This type of view is slower in performance.
+
+Syntax: @Html.Partial("_PartialStudent", Model)
+
+Render Partial View
+
+Return Type: Render Partial View returns void and output will be written directly to the output stream.
+When to use: Whenever output of partial view needs to display as it is then use Render Partial view.
+Performance: This type of view is faster in performance.
+
+Syntax: @{Html.RenderPartial("_PartialStudent", Model); }
+
+
+9) routing in mvc
+10) difference between static and sealed class
++--------------+---+-------------------------+------------------+---------------------+
+|  Class Type  |   | Can inherit from others | Can be inherited | Can be instantiated | 
+|--------------|---|-------------------------+------------------+---------------------+
+| normal       | : |          YES            |        YES       |         YES         |
+| abstract     | : |          YES            |        YES       |         NO          |
+| sealed       | : |          YES            |        NO        |         YES         |
+| static       | : |          NO             |        NO        |         NO          |
++--------------+---+-------------------------+------------------+---------------------+
+
+Static Class
+A class can be declared static, indicating that it contains only static members.
+It is not possible to create instances of a static class using the new keyword.
+Static classes are loaded automatically by the .NET Framework common language runtime (CLR) when the program or namespace containing the class is loaded.
+
+Sealed Class
+A sealed class cannot be used as a base class.
+Sealed classes are primarily used to prevent derivation.
+Because they can never be used as a base class, some run-time optimizations can make calling sealed class members slightly faster.
+
+11) performance tuning in store procedure
+12) temptabl,tempvariable,cte
+13) connection pooling..max pooling size..what will u prefer
+
+Connection pooling is the ability to re-use your connection to the Database. 
+This means if you enable Connection pooling in the connection object, actually you enable the re-use of the connection to more than one user.
+The connection pooling is enabled by default in the connection object. 
+If you disable the connection pooling, this means the connection object which you create will not be re-used to any other user than who creates that object.
+
+If you measure the difference you will see the time required by disabling the connection polling is 4 times greater than using connection pooling.
+One of the good practices when using your connection object is enclosed your code by try {..} catch {} finally {} blocks.
+On finally block you have to call Conn.Close(); or Conn.Dispose();
+To remove all resources attached to that connection.
+ 
+One of you asked what's the difference of calling Close or Dispose of, the answer doesn't use both of them, 
+Dispose method actually call close method internally plus remove all allocated resource for that object to be garbage collected and at the same time, 
+the underlying connection object can be pooled.
+
+14) linq..ienumerable & iquerable
+15) can we have multiple windows.onload in jquery..if we have what will happen
+
+“window. onload” will execute code when browser has loaded the DOM tree and all other resources like images, objects, etc.
+onDocumentReady executes when the DOM tree is built, without waiting for other resources to load.
+This allows executing the code against the DOM faster with onDocumentReady.
+
+16) how to hide 2 n 4 div using jquery
+$("div.ui-pg-div:eq(2)").hide() or we can use nth-child() as well
+
+17) difference between find and close
+
+closest() is to go up the tree, into the parents, including the current element. 
+find() is going down the tree looking in the childs, and the childs of childs:
+
+18) latest version of jquery
+19) difference between e.prevant default and e.stoppropogation
+
+event.preventDefault()
+Prevents the browsers default behaviour (such as opening a link), but does not stop the event from bubbling up the DOM.
+
+event.stopPropagation()
+Prevents the event from bubbling up the DOM, but does not stop the browsers default behaviour.
+90% of the time we use preventdefault()
+
+Event.preventDefault- stops browser default behaviour. 
+Now comes what is browser default behaviour.
+Assume you have a anchor tag and it has got a href attribute and this anchor tag is nested inside a div tag which has got a click event.
+Default behaviour of anchor tag is when clicked on the anchor tag it should navigate,
+but what event.preventDefault does is it stops the navigation in this case.
+But it never stops the bubbling of event or escalation of event i.e
+
+<div class="container">
+ <a href="#" class="element">Click Me!</a>
+</div>
+
+$('.container').on('click', function(e) {
+ console.log('container was clicked');
+});
+
+$('.element').on('click', function(e) {
+  e.preventDefault(); // Now link won't go anywhere
+  console.log('element was clicked');
+});
+The result will be
+
+"element was clicked"
+
+"container was clicked"
+
+Now event.StopPropation it stops bubbling of event or escalation of event. Now with above example
+
+$('.container').on('click', function(e) {
+  console.log('container was clicked');
+});
+
+$('.element').on('click', function(e) {
+  e.preventDefault(); // Now link won't go anywhere
+  e.stopPropagation(); // Now the event won't bubble up
+ console.log('element was clicked');
+});
+Result will be
+
+"element was clicked"
+
+20) performance tuning in sql - duplicate question
+21) when to use local and global temp table - duplicate question
+22) when temp table data is lost - duplicate question
+23) abstract class and its usage realtime with example - duplicate question
+24) output cache and its use
+
+The main purpose of using Output Caching is to dramatically improve the performance of an ASP.NET MVC Application.
+It enables us to cache the content returned by any controller method so that the same content does not need to be generated each time the same controller method is invoked.
+Output Caching has huge advantages, such as it reduces server round trips, reduces database server round trips, reduces network traffic etc.
+ 
+Keep the following in mind:
+Avoid caching contents that are unique per user.
+Avoid caching contents that are accessed rarely.
+Use caching for contents that are accessed frequently.
+
+OutputCache label has a "Location" attribute and it is fully controllable.
+Its default value is "Any", however there are the following locations available; as of now, we can use any one.
+ 
+1. Any   2. Client   3. Downstream   4. Server   5. None   6. ServerAndClient
+ [OutputCache(Duration = 10, VaryByParam = "name")]
+ default duration is 60 seconds
+ 
+VaryByParam = "name": This property enables you to create different cached versions of the content when a form parameter or query string parameter varies.
+In other words if I find records matching "ce" string then a new cache will be created by replacing the older one, 
+again if I find records matching "ab" string then a new cache will be created by replacing the last one ("ce" cached), no matter duration is elapsed or not.
+
+25) static and runtime polymorphism - duplicate question
+26) attribute routing in mvc - duplicate question
+28) different type of filters in mvc and its sequence - duplicate question
+29) difference between tempdata,viewdata,viewbag - duplicate question
+30) how to redirect to different controller and action and different action within same controller - duplicate question
+31) how to pass data from view to controller - duplicate question
+32) how to pass data from view to other view- duplicate question
+33) authentication in mvc - duplicate question
+34) can we have same attribute routing name to different action - duplicate question
+35) different type of return type in mvc
+
+ViewResult.
+PartialViewResult.
+ContentResult.
+EmptyResult.
+FileResult.
+JsonResult.
+JavaScriptResult.
+ActionResult is parent of all the above result.
+
+36) how to pass object from one view to other
+37) what is htmlhelper and its usage
+38) advantage of razor syntax
+39) area in mvc
+40) constraint in mvc like if this action is called throw an error
+41) repository design pattern - duplicate question
+42) use of cdn - duplicate question
+43) why use viewmodel over view
+44) benefit of bundling
+45) benefit of minification
+46) why mvc over asp.net
+47) routing
+48) customize data annotaion
+49) different ways how we can transfer data from view to controller
+50) sql optimization - duplicate question
+51) cte with example - duplicate question
+52) abstract class and interface - duplicate question
+53) why indexing how to create one and different type of indexing - duplicate question
+54) how to create non cluster index...can we have non cluster index including multiple columns - YES
+55) selectors in jquery - duplicate question
+56) extension method
+
+A C# extension methods allows developers to extend functionality of an existing type without creating a new derived type, 
+recompiling, or otherwise modifying the original type. 
+C# extension method is a special kind of static method that is called as if it was an instance methods on the extended type.
+In this article, we will create a class library and we will then extend its functionality from the caller code by implementing extension methods in C#. 
+
+C# Extension Method
+C# extension method is a static method of a static class, where the "this" modifier is applied to the first parameter.
+The type of the first parameter will be the type that is extended.
+
+Extension methods are only in scope when you explicitly import the namespace into your source code with a using directive.
+
+using System;
+using System.Text;
+using ClassLibExtMethod;
+
+namespace ExtensionMethod1
+{
+    public static class XX
+    {
+         public static void NewMethod(this Class1 ob)
+        {
+            Console.WriteLine("Hello I m extended method");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 ob = new Class1();
+            ob.Display();
+            ob.Print();
+            ob.NewMethod();
+            Console.ReadKey();
+        }
+    }
+}
+C#
+In the above code, you see there is a static class XX with a method, NewMethod. 
+If you notice, the NewMethod takes Class1 as a parameter. 
+This is how you extend an existing library and add your own methods to it. 
+Now, this New Method is available via the class library.
+
+Extension method are shown with down arrow in intellisense.
+
+Benefits of extension methods
+Extension methods allow existing classes to be extended without relying on inheritance or having to change the class's source code.
+If the class is sealed than there in no concept of extending its functionality. For this a new concept is introduced, in other words extension methods.
+This feature is important for all developers, especially if you would like to use the dynamism of the C# enhancements in your class's design.
+
+using System;
+using System.Text;
+
+namespace ExtensionMethod2
+{
+    public static class ExtMetClass
+    {
+        public static int IntegerExtension(this string str)
+        {
+            return Int32.Parse(str);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str = "123456";
+            int num = str.IntegerExtension();
+            Console.WriteLine("The output using extension method: {0}", num);
+            Console.ReadLine();
+        }
+    }
+}
+C#
+In the preceding program we have used an extension method IntegerExtension() to convert a string to a numeric type.
+
+Important points for the use of extension methods
+An extension method must be defined in a top-level static class.
+An extension method with the same name and signature as an instance method will not be called.
+Extension methods cannot be used to override existing methods.
+The concept of extension methods cannot be applied to fields, properties or events.
+Overuse of extension methods is not a good style of programming.
+It was introduce in c# 3.0
+
+57) cors - duplicate question
+58) how to return only json from webapi
+
+set Accept or content-type as "application/json" in header (this will still return xml if header is "text/xml") so add below line
+config.Formatters.Remove(config.Formatters.XmlFormatter);    
+    
+59) repository design pattern - duplicate question
+60) different type of http method in webapi - duplicate question
+61) exception handling in mvc
+
+ASP.NET provides the following ways to handle exceptions:
+
+Using <customErrors> element in web.config
+Using HandleErrorAttribute
+Overriding Controller.OnException method
+Using Application_Error event of HttpApplication
+
+<customErrors> Element in web.config
+The <customErrors> element under system.web in web.config is used to configure error code to a custom page.
+It can be used to configure custom pages for any error code 4xx or 5xx. 
+However, it cannot be used to log exception or perform any other action on exception.
+
+Enable the <customErrors> in web.config, as shown below.
+
+Example: Enable customErrors Copy
+<system.web> 
+    <customErrors mode="On"></customErrors>
+</system.web> 
+You also need to add HandleErrorAttribute filter in the FilterConfig.cs file.
+
+Example: Add HandleErrorAttribute Filter Copy
+public class FilterConfig
+{
+    public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+    {
+        filters.Add(new HandleErrorAttribute());
+    }
+}
+After enabling the customErrors mode to On, an ASP.NET MVC application will show the default custom error page, as shown below.
+
+HandleErrorAttribute
+The HandleErrorAttribute is an attribute that can be used to handle exceptions thrown by an action method or a controller.
+You can use it to display a custom view on a specific exception occurred in an action method or in an entire controller.
+
+Note:
+The HandleErrorAttribute attribute can only be used to handle the exception with status code 500. 
+Also, it does not provide a way to log exceptions.
+In order to use this attribute, you must add HandleErrorAttribute filter in the FilterConfig.RegisterGlobalFilters() method 
+and also, set the mode attribute to On <customErrors mode="On"> in web.config, as we did for the customErrors section above.
+
+Now, let's apply [HandleError] attribute to the action method, as shown below.
+
+Example: HandleErrorAttribute Copy
+public class HomeController : Controller
+{
+    [HandleError]
+    public ActionResult Contact()
+    {
+        string msg = null;
+        ViewBag.Message = msg.Length;
+            
+        return View();
+    }
+}
+Above, we configured [HandleError] attribute on the Contact() action method. 
+It will display Error.cshtml view from the Shared folder when an exception occurs. 
+The [HandleError] set the Error.cshtml view as default view for any exceptions.
+
+the [HandleError] can also be used to configure different pages for different types of exceptions, as shown below.
+
+Example: Configure Views for Exceptions Copy
+public class HomeController : Controller
+{
+    [HandleError]
+    [HandleError(ExceptionType =typeof(NullReferenceException), View ="~/Views/Error/NullReference.cshtml")]
+    public ActionResult Contact()
+    {
+        string msg = null;
+        ViewBag.Message = msg.Length;
+            
+        return View();
+    }
+}
+Now, the above example will show NullReference.cshtml because it throws NullReferenceException.
+
+The [HandleError] attribute has a limited scope and not recommended to use in most cases.
+
+Overriding Controller.OnException Method
+Another way to handle controller level exceptions is by overriding the OnException() method in the controller class. 
+This method handles all your unhandled errors with error code 500.
+
+It allows you to log an exception and redirect to the specific view. 
+It does not require to enable the <customErrors> config in web.config.
+
+Example: Handle Exceptions in the Controller Copy
+public class HomeController : Controller
+{
+    public ActionResult Contact()
+    {
+        string msg = null;
+        ViewBag.Message = msg.Length;
+            
+        return View();
+    }
+    
+    protected override void OnException(ExceptionContext filterContext)
+    {
+        filterContext.ExceptionHandled = true;
+
+        //Log the error!!
+     
+        //Redirect to action
+        filterContext.Result = RedirectToAction("Error", "InternalError");
+
+        // OR return specific view
+        filterContext.Result = new ViewResult
+        {
+            ViewName = "~/Views/Error/InternalError.cshtml"
+        };
+   }
+} 
+Using Application_Error event of HttpApplication
+The ideal way to log exception occurred in any part of your MVC application is to handle it in the Application_Error event in the global.asax file.
+
+Example: Copy
+public class MvcApplication : System.Web.HttpApplication
+{
+    //other code removed for clarity
+
+    protected void Application_Error()
+    {
+        var ex = Server.GetLastError();
+        //log an exception
+    }
+}
+The Application_Error event is fired on any type of exception and error codes. So, handle it carefully.
+
+Recommendation
+In most web applications, you should ideally log the exceptions and also show appropriate error messages or pages to the users.
+So, it is recommended to use the global Application_Error event to log all the exceptions along with <customErrors> element in web.config to redirect it to appropriate pages.
+
+62) dependency injection with live example
+63) why use abstract and interface with real life example
+64) repository design pattern with example
+65) why web api over wcf with 5 reasons
+66) which return type would we use to download file in mvc - FileResult
+67) difference between httphandler and moduler
+68) can having and where clause used in same query
+69) static class and sealed class - duplicate question
+70) differenct type of constructor 
+
+What is a constructor?
+
+A constructor is a special method that is used to initialize an object. 
+A constructor is invoked at the time of an object creation. Constructor name must be the same as its class name. 
+A constructor must have no explicit return type.
+
+Different between Constructors and Method
+
+Constructor	 Method
+A constructor is used to initialize an object	A method is used to expose the behavior of an object
+The constructor must not have a return type.	The method has or not have a return type.
+A constructor must be the same as the class name	Method name may or may not be same as the class name
+A constructor is invoked implicitly.	A method is invoked explicitly.
+Default Constructor
+
+A constructor without any parameters is called a default constructor. 
+If we do not create constructor the class will automatically call default constructor when an object is created.
+Example
+
+using System;  
+namespace DefaultConstructor_Demo  
+{  
+    public class Customer  
+    {  
+        public string firstName;  
+        public string lastName;  
+        public Customer()  
+        {  
+  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            Customer custormer = new Customer();  
+            custormer.firstName = "Farhan";  
+            custormer.lastName = "Ahmed";  
+  
+            Console.WriteLine("Full Name:"+custormer.firstName+ " "+ custormer.lastName);  
+            Console.ReadLine();  
+  
+        }  
+    }  
+}  
+Parameter Constructor
+
+A constructor with at least one parameter is called a parametrized constructor.
+Example
+
+using System;  
+namespace ParameterConstructor_Demo  
+{  
+    class ParameterConstructor  
+    {  
+        public int FirstNumber;  
+        public int SecondNumber;  
+  
+        public ParameterConstructor(int firstNumber, int secondNumber)  
+        {  
+            FirstNumber = firstNumber;  
+            SecondNumber = secondNumber;  
+        }  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            ParameterConstructor p = new ParameterConstructor(10, 20);  
+            int Result = p.FirstNumber + p.SecondNumber;  
+  
+            Console.WriteLine("Total:" + Result);  
+            Console.ReadLine();  
+        }  
+    }  
+}  
+Copy Constructor
+
+The constructor which creates an object by copying variables from another object is called a copy constructor.
+Example
+
+using System;  
+namespace CopyConstructor_Demo  
+{  
+    public class Employee  
+    {  
+       public string firstName;  
+       public string lastName;  
+       public string position;  
+       public int salary;  
+        public Employee()  
+        {  
+                  
+        }  
+        // Copy constructor.  
+        public Employee(Employee employee)  
+        {  
+            firstName = employee.firstName;  
+            lastName  = employee.lastName;  
+            position  = employee.position;  
+            salary    = employee.salary;  
+        }  
+  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            Employee emp = new Employee();  
+            Employee emp1 = new Employee(emp);  
+   
+            Console.WriteLine("Enter your first name:");  
+            emp1.firstName = Convert.ToString(Console.ReadLine());  
+            Console.WriteLine("Enter your last name:");  
+            emp1.lastName = Convert.ToString(Console.ReadLine());  
+            Console.WriteLine("Enter your position:");  
+            emp1.position = Convert.ToString(Console.ReadLine());  
+            Console.WriteLine("Enter your salary:");  
+            emp1.salary = Convert.ToInt32(Console.ReadLine());  
+  
+            Console.WriteLine("First Name:" + emp1.firstName);  
+            Console.WriteLine("Last Name:" + emp1.lastName);  
+            Console.WriteLine("Position:" + emp1.position);  
+            Console.WriteLine("Salary:" + emp1.salary);  
+        }  
+    }  
+}  
+Static Constructor
+
+A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed once only. 
+It is called automatically before the first instance is created or any static members are referenced.
+Characteristic of static constructor
+
+A static constructor does not take any access modifiers.
+A static constructor does not have a parameter.
+A static constructor is called automatically to initialize the class before the first instance is created or any static members are referenced.
+A static constructor cannot be called directly.
+The user has no control over when the static constructor is executed in the program.
+A typical use of static constructors is when the class is using a log file and the constructor is used to write entries to this file.
+A class can have only one static constructor.
+It can access only static members of a class.
+Example
+
+using System;  
+namespace StaticConstructor_Demo  
+{  
+    public class Customer  
+    {  
+        public string firstName;  
+        public string lastName;  
+        public static string discount;  
+  
+        public Customer(string FirstName, string LastName)  
+        {  
+            firstName = FirstName;  
+            lastName = LastName;  
+        }  
+        static Customer()  
+        {  
+            discount = 10+"%";  
+        }  
+        public void CustomerDetails()  
+        {  
+            Console.WriteLine("Full Name:{0}", firstName +" "+lastName );  
+            Console.WriteLine("Discount:{0}",discount + "\n");  
+        }    
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            Customer c1 = new Customer("Farhan","Ahmed");  
+            Customer c2 = new Customer("Abdul", "Jabbar");  
+            c1.CustomerDetails();  
+            c2.CustomerDetails();  
+            Console.ReadLine();  
+        }  
+    }  
+}  
+ 
+A private constructor is a special instance constructor. It is generally used in classes that contain static members only.
+If a class has one or more private constructors and no public constructors, other classes (except nested classes) cannot create instances of this class. 
+The use of private constructor is to serve singleton classes. 
+A singleton class is one which limits the number of objects created to one. 
+Using private constructor we can ensure that no more than one object can be created at a time
+One use of private constructor is when we have the only static member.
+It provides the implementation of singleton class pattern.
+Once we provide constructor (private/public/any) the compiler will not add the no parameter public constructor to any class.
+Example
+
+using System;  
+using System.Collections.Generic;  
+using System.Linq;  
+using System.Text;  
+using System.Threading.Tasks;  
+  
+namespace PrivateConstructor_Demo  
+{  
+    public class Candidate  
+    {  
+        private Candidate()  
+        {  
+                  
+        }  
+        public static int CandidateVisitedForInterview;  
+        public static int CountCandidate()  
+        {  
+            return ++CandidateVisitedForInterview;  
+        }  
+  
+    }  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            // The following comment line will throw an error because constructor is inaccessible  
+            //Candidate candidate = new Candidate();  
+            Candidate.CandidateVisitedForInterview = 20;  
+            Candidate.CountCandidate();  
+            Console.WriteLine("Interviewed candidates: {0}", Candidate.CandidateVisitedForInterview);  
+            Console.ReadLine();  
+        }  
+    }  
+}
+
+71) custom validator in asp.net
+
+ASP.NET - Validators
+RequiredFieldValidator.
+RangeValidator.
+CompareValidator.
+RegularExpressionValidator.
+CustomValidator.
+ValidationSummary.
+
+72) method overloading with different method signature
+73) security in webapi
+
+https://www.c-sharpcorner.com/UploadFile/1492b1/restful-day-sharp5-security-in-web-apis-basic-authentication-a/
+https://medium.com/swlh/3-ways-to-secure-your-web-api-for-different-situations-8d5cd4762ab3
+
+74) difference between datatable and dataset
+75) null coehrsion in asp.net
+
+The ?? operator works for both reference types and value types. 
+In the preceding example, y is an integer (value type) and returnMessage is a string type (reference type).
+ 
+The following are the advantages of the Null-Coalescing Operator (??) operator:
+It is used to define a default value for a nullable item (for both value types and reference types).
+It prevents the runtime InvalidOperationException exception.
+It helps us to remove many redundant "if" conditions.
+It works for both reference types and value types.
+The code becomes well-organized and readable.
+
+76) can we define unique key as primary key
+
+Primary Key
+
+Primary Key is a column that is used to uniquely identify each tuple of the table.
+It is used to add integrity constraints to the table. Only one primary key is allowed to be used in a table. Duplicate and NULL (empty) values are not valid in the case of the primary key. Primary keys can be used as foreign keys for other tables too.
+
+Let’s take an example,
+Emp_id here is primary key of the table. As the id of each employee is unique and no two employees can have the same Emp_id.
+
+Unique Key
+
+Unique key is a constraint that is used to uniquely identify a tuple in a table.
+Multiple unique keys can present in a table. NULL values are allowed in case of a unique key. These can also be used as foreign keys for another table.
+
+Let’s take an example,
+Ph_No here is the foriegn key of the table. As the phone number of each employee is unique and it might be possible that an employee does not have any phone number.
+
+Difference between Primary Key and Unique Key 
+
+Primary Key	| Unique Key
+Unique identifier for rows of a table | Unique identifier for rows of a table when primary key is not present
+Cannot be NULL	| Can be NULL
+Only one primary key can be present in a table |	Multiple Unique Keys can be present in a table
+present in a table |	present in a table
+Selection using primary key creates clustered index	| Selection using unique key creates non-clustered index
+
+77) stack and heap -- check ImpNotes
+78) value type and reference type
+
+Value Type
+Value type variables can be assigned a value directly. They are derived from the class System.ValueType. 
+The value types directly contain data. When you declare an int type, the system allocates memory to store the value.
+Value Type variables are stored in the stack.
+Examples are int, char, and float, which stores numbers, alphabets, and floating point numbers, respectively.
+
+Reference Type
+It refers to a memory location. Using multiple variables, the reference types can refer to a memory location.
+If the data in the memory location is changed by one of the variables, the other variable automatically reflects this change in value.
+Reference Type variables are stored in the heap.
+Example of built-in reference types are −
+
+object
+dynamic
+string
+
+Value Type:
+
+A Value Type stores its contents in memory allocated on the stack. 
+When you created a Value Type, a single space in memory is allocated to store the value and that variable directly holds a value. 
+If you assign it to another variable, the value is copied directly and both variables work independently. 
+Predefined datatypes, structures, enums are also value types, and work in the same way. 
+Value types can be created at compile time and Stored in stack memory, because of this, Garbage collector can't access the stack.
+int x=10;
+
+Reference Type:
+
+Reference Types are used by a reference which holds a reference (address) to the object but not the object itself. 
+Because reference types represent the address of the variable rather than the data itself, assigning a reference variable to another doesn't copy the data. 
+Instead it creates a second copy of the reference, which refers to the same location of the heap as the original value. 
+Reference Type variables are stored in a different area of memory called the heap. 
+This means that when a reference type variable is no longer used, it can be marked for garbage collection. 
+Examples of reference types are Classes, Objects, Arrays, Indexers, Interfaces etc.
+int[] arr=new int[20];
+
+e.g.
+
+79) how to get usercontrol field value in main page
+80) Dynamic keyword in c#
+
+The dynamic keyword brings exciting new features to C# 4.
+Dynamic Type means that you can store any type of value in the dynamic data type variable because type checking for dynamic types of variables takes place at run-time.
+In order to use the dynamic type in C#, you use the dynamic keyword in place of another type name.
+
+ 
+dynamic amDynamic = 100;
+dynamic dynStr = "Hello";
+
+The key to the dynamic type is that the type checking is disabled until run-time.
+When you use the dynamic keyword you tell the compiler to turn off compile-time checking .
+So, it is not type safe i.e. Compiler doesn't have any information about the type of variable. 
+This can produce problems if the run-time type does not support the members that are called.
+
+ 
+dynamic var = "test";
+Console.WriteLine(var++);// The following line throws an exception at run time.
+
+The reason is that the compiler doesn't know the runtime type of the object and therefore can't tell you that the increment operation is not supported in this case.
+Absence of compile-time type checking leads to the absence of IntelliSense as well.
+Because the C# compiler doesn't know the type of the object, it can't enumerate its properties and methods.
+This problem might be solved with additional type inference , as is done in the IronPython tools for Visual Studio, but for now C# doesn't provide it.
+
+Dynamic type as Parameter
+Dynamic type can be passed as method argument so that it can accept any type of parameter at run time.
+
+Example
+ 
+using System;
+using System.Windows.Forms;
+namespace WindowsFormsApplication4
+{
+  public partial class Form1 : Form
+  {
+    public Form1()
+    {
+      InitializeComponent();
+    }
+    private void button1_Click(object sender, EventArgs e)
+    {
+      DisplayValue("Parameter Test !!"); //String
+      DisplayValue(true); //Boolean
+      DisplayValue(100); //Integer
+      DisplayValue(100.50); //Double
+      DisplayValue(DateTime.Now); //Date
+    }
+    static void DisplayValue(dynamic val)
+    {
+      Console.WriteLine(val);
+    }
+  }
+}
+
+Casting is not required but you need to know the properties and methods related to stored type.
+It is effectively inherit the properties and methods appropriate to their type at runtime. The following code will run because str is a string at the point the Length property is used, for example:
+
+ 
+dynamic str = "Hello";
+Console.WriteLine(str.Length);
+
+Limitations
+In most situations it would be inadvisable to use the dynamic type unless you are integrating with a dynamic language or another framework where types are not known at compile time.
+Because the compiler does not know what type the dynamic variable will eventually become, so it’s unable to offer method or property code hints in Visual Studio.
+
+81)
+Differences between Stack and Heap
+Stack and a Heap ?
+
+Stack is used for static memory allocation and Heap for dynamic memory allocation, both stored in the computer's RAM .
+
+Variables allocated on the stack are stored directly to the memory and access to this memory is very fast, and it's allocation is dealt with when the program is compiled.
+When a function or a method calls another function which in turns calls another function etc., the execution of all those functions remains suspended until the very last function returns its value.
+The stack is always reserved in a LIFO order, the most recently reserved block is always the next block to be freed.
+This makes it really simple to keep track of the stack, freeing a block from the stack is nothing more than adjusting one pointer.
+
+Variables allocated on the heap have their memory allocated at run time and accessing this memory is a bit slower, but the heap size is only limited by the size of virtual memory .
+Element of the heap have no dependencies with each other and can always be accessed randomly at any time.
+You can allocate a block at any time and free it at any time.
+This makes it much more complex to keep track of which parts of the heap are allocated or free at any given time.
+
+stack-heap
+You can use the stack if you know exactly how much data you need to allocate before compile time and it is not too big.
+You can use heap if you don't know exactly how much data you will need at runtime or if you need to allocate a lot of data.
+
+In a multi-threaded situation each thread will have its own completely independent stack but they will share the heap.
+Stack is thread specific and Heap is application specific.
+The stack is important to consider in exception handling and thread executions.
+
+https://www.c-sharpcorner.com/article/stack-vs-heap-memory-c-sharp/
+
+
+
+
+
